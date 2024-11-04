@@ -1,28 +1,30 @@
 <template>
   <div class="category">
-    <img :src="props.imgPath" alt="category picture" />
+    <img :src="imgPath" alt="category picture" />
     <div class="title">
-      <h1>{{ props.title || "Placeholder" }}</h1>
-      <p>{{ props.amount }} Items</p>
+      <h1>{{ title || "Placeholder" }}</h1>
+      <p>{{ amount }} Items</p>
     </div>
   </div>
 </template>
 
-<script setup>
-const props = defineProps({
-  imgPath: {
-    type: String,
+<script>
+export default {
+  props: {
+    imgPath: {
+      type: String,
+    },
+    title: {
+      type: String,
+    },
+    amount: {
+      type: Number,
+    },
+    bgColor: {
+      type: String,
+    },
   },
-  title: {
-    type: String,
-  },
-  amount: {
-    type: Number,
-  },
-  bgColor: {
-    type: String,
-  },
-});
+};
 </script>
 
 <style scoped>

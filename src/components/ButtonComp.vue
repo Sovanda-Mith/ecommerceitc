@@ -9,17 +9,20 @@
   </button>
 </template>
 
-<script setup>
-import { computed } from "vue";
-const props = defineProps({
-  color: {
-    type: String,
-    default: "primary",
+<script>
+export default {
+  props: {
+    color: {
+      type: String,
+      default: "primary",
+    },
   },
-});
-const colorClass = computed(() => {
-  return `btn-${props.color}`;
-});
+  computed: {
+    colorClass() {
+      return `btn-${this.color}`;
+    },
+  },
+};
 </script>
 
 <style scoped>
