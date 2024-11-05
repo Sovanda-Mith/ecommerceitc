@@ -1,31 +1,36 @@
 <template>
   <div class="card">
     <div class="textSection">
-      <h1>{{ props.title }}</h1>
-      <ButtonComp :color="props.btnColor" />
+      <h1>{{ title }}</h1>
+      <ButtonComp :color="btnColor" />
     </div>
-    <img :src="props.imgPath" alt="banner" />
+    <img :src="imgPath" alt="banner" />
   </div>
 </template>
 
-<script setup>
+<script>
 import ButtonComp from "./ButtonComp.vue";
-const props = defineProps({
-  imgPath: {
-    type: String,
-    default: "../src/assets/onion.png",
+export default {
+  components: {
+    ButtonComp,
   },
-  btnColor: {
-    type: String,
-    default: "primary",
+  props: {
+    imgPath: {
+      type: String,
+      default: "../src/assets/onion.png",
+    },
+    btnColor: {
+      type: String,
+      default: "primary",
+    },
+    title: {
+      type: String,
+    },
+    bgColor: {
+      type: String,
+    },
   },
-  title: {
-    type: String,
-  },
-  bgColor: {
-    type: String,
-  },
-});
+};
 </script>
 
 <style scoped>
