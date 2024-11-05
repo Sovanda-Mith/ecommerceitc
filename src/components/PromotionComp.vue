@@ -1,8 +1,8 @@
 <template>
   <div class="card">
     <div class="textSection">
-      <h1>{{ title }}</h1>
-      <ButtonComp :color="btnColor" />
+      <h1 class="text">{{ title }}</h1>
+      <ButtonComp :color="btnColor" class="btn-row" />
     </div>
     <img :src="imgPath" alt="banner" />
   </div>
@@ -55,6 +55,7 @@ export default {
   font-weight: 700;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 25px;
   width: 271px;
   height: 146px;
@@ -64,9 +65,16 @@ export default {
   left: 45px;
 }
 
-.textSection h1 {
+.text {
+  position: absolute;
   font-size: 24px;
+  margin: 0;
   width: 271px;
   height: 92px;
+}
+
+.btn-row {
+  position: absolute;
+  top: 130px;
 }
 </style>
