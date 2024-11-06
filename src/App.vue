@@ -43,7 +43,6 @@ export default {
         .get("http://localhost:3000/api/categories")
         .then((response) => {
           this.categories = response.data;
-          console.log(response.data);
         })
         .catch((error) => {
           console.error("Error fetching data: ", error);
@@ -54,7 +53,6 @@ export default {
         .get("http://localhost:3000/api/promotions")
         .then((response) => {
           this.promotions = response.data;
-          console.log(response.data);
         })
         .catch((error) => {
           console.error("Error fetching data: ", error);
