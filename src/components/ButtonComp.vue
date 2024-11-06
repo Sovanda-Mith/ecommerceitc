@@ -14,12 +14,7 @@ export default {
   props: {
     color: {
       type: String,
-      default: "primary",
-    },
-  },
-  computed: {
-    colorClass() {
-      return `btn-${this.color}`;
+      default: "#3bb77e",
     },
   },
 };
@@ -27,6 +22,9 @@ export default {
 
 <style scoped>
 .btn {
+  color: #fff;
+  background-color: v-bind(color);
+  border-color: v-bind(color);
   font-family: Quicksand;
   font-weight: 700;
   font-size: 14px;
@@ -37,50 +35,5 @@ export default {
   width: fit-content;
   padding: 8px 15px;
   cursor: pointer;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
-}
-
-.btn-primary:hover,
-.btn-primary:focus {
-  color: #fff;
-  background-color: #0056b3;
-  border-color: #007bff;
-  outline: none;
-  box-shadow: none;
-}
-
-.btn-warning {
-  color: #fff;
-  background-color: #fdc040;
-  border-color: #fdc040;
-}
-
-.btn-warning:hover,
-.btn-warning:focus {
-  color: #fff;
-  background-color: #e0a800;
-  border-color: #ffc107;
-  outline: none;
-  box-shadow: none;
-}
-
-.btn-success {
-  color: #fff;
-  background-color: #3bb77e;
-  border-color: #4bb77e;
-}
-
-.btn-success:hover,
-.btn-success:focus {
-  color: #fff;
-  background-color: #4cb74c;
-  border-color: #5cb85c;
-  outline: none;
-  box-shadow: none;
 }
 </style>

@@ -32,19 +32,19 @@ export default {
         {
           imgPath: "../src/assets/onion.png",
           title: "Everyday Fresh & Clean with Our Products",
-          btnColor: "success",
+          btnColor: "#3bb77e",
           bgColor: "#f0e8d5",
         },
         {
           imgPath: "../src/assets/beverage.png",
           title: "Make your Breakfast Healthy and Easy",
-          btnColor: "success",
+          btnColor: "#3bb77e",
           bgColor: "#f3e8e8",
         },
         {
           imgPath: "../src/assets/organic.png",
           title: "The best Organic Products Online",
-          btnColor: "warning",
+          btnColor: "#fdc040",
           bgColor: "#e7eaf3",
         },
       ],
