@@ -2,7 +2,7 @@
   <div class="card">
     <div class="textSection">
       <h1 class="text">{{ title }}</h1>
-      <ButtonComp :color="btnColor" class="btn-row" />
+      <ButtonComp :color="btnColor" class="btn-row" @click="shopNow($props)" />
     </div>
     <img :src="imgPath" alt="banner" />
   </div>
@@ -28,6 +28,11 @@ export default {
     },
     bgColor: {
       type: String,
+    },
+  },
+  methods: {
+    shopNow(promotion) {
+      alert("Let's shop: " + promotion.title);
     },
   },
 };
