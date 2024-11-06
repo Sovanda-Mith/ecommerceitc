@@ -1,5 +1,5 @@
 <template>
-  <button class="btn" :class="colorClass">
+  <button class="btn">
     Shop Now
     <img
       src="@/assets/right-arrow-7359.svg"

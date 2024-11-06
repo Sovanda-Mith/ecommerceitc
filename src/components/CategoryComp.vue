@@ -1,9 +1,9 @@
 <template>
   <div class="category">
-    <img :src="imgPath" alt="category picture" />
+    <img :src="image" alt="category picture" />
     <div class="title">
-      <h1>{{ title || "Placeholder" }}</h1>
-      <p>{{ amount }} Items</p>
+      <h1>{{ name || "Placeholder" }}</h1>
+      <p>{{ productCount }} Items</p>
     </div>
   </div>
 </template>
@@ -11,16 +11,16 @@
 <script>
 export default {
   props: {
-    imgPath: {
+    image: {
       type: String,
     },
-    title: {
+    name: {
       type: String,
     },
-    amount: {
+    productCount: {
       type: Number,
     },
-    bgColor: {
+    color: {
       type: String,
     },
   },
@@ -42,7 +42,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  background-color: v-bind(bgColor);
+  background-color: v-bind(color);
   width: 136px;
   height: 177px;
   border: #81b13d solid 1px;

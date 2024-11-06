@@ -2,9 +2,13 @@
   <div class="card">
     <div class="textSection">
       <h1 class="text">{{ title }}</h1>
-      <ButtonComp :color="btnColor" class="btn-row" @click="shopNow($props)" />
+      <ButtonComp
+        :color="buttonColor"
+        class="btn-row"
+        @click="shopNow($props)"
+      />
     </div>
-    <img :src="imgPath" alt="banner" />
+    <img :src="image" alt="banner" />
   </div>
 </template>
 
@@ -15,18 +19,18 @@ export default {
     ButtonComp,
   },
   props: {
-    imgPath: {
+    image: {
       type: String,
       default: "../src/assets/onion.png",
     },
-    btnColor: {
+    buttonColor: {
       type: String,
-      default: "primary",
+      default: "#fdc040",
     },
     title: {
       type: String,
     },
-    bgColor: {
+    color: {
       type: String,
     },
   },
@@ -45,7 +49,7 @@ export default {
   width: 512px;
   height: 300px;
   border-radius: 10px;
-  background-color: v-bind(bgColor);
+  background-color: v-bind(color);
 }
 
 .card img {

@@ -3,118 +3,67 @@
     <section class="categories">
       <CategoryComp
         v-for="category in categories"
-        :imgPath="category.imgPath"
-        :title="category.title"
-        :amount="category.amount"
-        :bgColor="category.bgColor"
-        :key="category.title"
+        :image="category.image"
+        :name="category.name"
+        :productCount="category.productCount"
+        :color="category.color"
+        :key="category.name"
       />
     </section>
     <section class="promotions">
       <PromotionComp
         v-for="promotion in promotions"
-        :imgPath="promotion.imgPath"
+        :image="promotion.image"
         :title="promotion.title"
-        :btnColor="promotion.btnColor"
-        :bgColor="promotion.bgColor"
+        :buttonColor="promotion.buttonColor"
+        :color="promotion.color"
         :key="promotion.title"
       />
     </section>
   </div>
 </template>
 <script>
+import axios from "axios";
 import CategoryComp from "./components/CategoryComp.vue";
 import PromotionComp from "./components/PromotionComp.vue";
 export default {
   data() {
     return {
-      promotions: [
-        {
-          imgPath: "../src/assets/onion.png",
-          title: "Everyday Fresh & Clean with Our Products",
-          btnColor: "#3bb77e",
-          bgColor: "#f0e8d5",
-        },
-        {
-          imgPath: "../src/assets/beverage.png",
-          title: "Make your Breakfast Healthy and Easy",
-          btnColor: "#3bb77e",
-          bgColor: "#f3e8e8",
-        },
-        {
-          imgPath: "../src/assets/organic.png",
-          title: "The best Organic Products Online",
-          btnColor: "#fdc040",
-          bgColor: "#e7eaf3",
-        },
-      ],
-      categories: [
-        {
-          imgPath: "../src/assets/hamburger.png",
-          title: "Cake & Milk",
-          amount: 14,
-          bgColor: "#f2fce4",
-        },
-        {
-          imgPath: "../src/assets/peach.png",
-          title: "Peach",
-          amount: 17,
-          bgColor: "#fffceb",
-        },
-        {
-          imgPath: "../src/assets/kiwi.png",
-          title: "Organic Kiwi",
-          amount: 21,
-          bgColor: "#ecffec",
-        },
-        {
-          imgPath: "../src/assets/apple.png",
-          title: "Red Apple",
-          amount: 68,
-          bgColor: "#feefea",
-        },
-        {
-          imgPath: "../src/assets/snack.png",
-          title: "Snack",
-          amount: 34,
-          bgColor: "#fff3eb",
-        },
-        {
-          imgPath: "../src/assets/black_plum.png",
-          title: "Black plum",
-          amount: 25,
-          bgColor: "#fff3ff",
-        },
-        {
-          imgPath: "../src/assets/vegetable.png",
-          title: "Vegetables",
-          amount: 65,
-          bgColor: "#f2fce4",
-        },
-        {
-          imgPath: "../src/assets/headphone.png",
-          title: "Headphone",
-          amount: 33,
-          bgColor: "#fffceb",
-        },
-        {
-          imgPath: "../src/assets/cake.png",
-          title: "Cake & Milk",
-          amount: 54,
-          bgColor: "#f2fce4",
-        },
-        {
-          imgPath: "../src/assets/orange.png",
-          title: "Orange",
-          amount: 63,
-          bgColor: "#fff3ff",
-        },
-      ],
+      promotions: [],
+      categories: [],
     };
   },
   components: {
     CategoryComp,
     PromotionComp,
+  },
+  methods: {
+    fetchCategories() {
+      axios
+        .get("http://localhost:3000/api/categories")
+        .then((response) => {
+          this.categories = response.data;
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching data: ", error);
+        });
+    },
+    fetchPromotions() {
+      axios
+        .get("http://localhost:3000/api/promotions")
+        .then((response) => {
+          this.promotions = response.data;
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching data: ", error);
+        });
+    },
+  },
+  mounted() {
+    this.fetchCategories();
+    this.fetchPromotions();
   },
 };
 </script>
